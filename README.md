@@ -1,23 +1,27 @@
-# ML_regression
-Predict count of rented bikes in a specific time.
+This project focuses on predicting bike sharing demand using machine learning techniques. The goal is to develop a model that can accurately estimate the number of bike rentals based on various factors such as weather conditions, time of day, and other relevant features.
 
-1. **Data Import:**
-   The code imports the training and test datasets from CSV files using pandas. The datasets contain information about bike rentals, including timestamps, weather conditions, and other relevant features.
+### Dataset
 
-2. **Feature Engineering:**
-   The code extracts additional features from the timestamps, such as month, hour, and weekday, to capture temporal patterns in the data.
+The dataset used for this project consists of historical bike sharing data, which includes information about the number of bikes rented, weather conditions, and date/time. It is split into a training dataset and a test dataset.
 
-3. **Data Preparation:**
-   The code separates the input features (X) from the target variable (y) in the training dataset. It also performs train-test split to create training and testing sets for model evaluation.
+### Feature Engineering
 
-4. **Transformation Pipeline:**
-   The code defines a transformation pipeline that applies specific transformations to different subsets of the input features. Categorical features are one-hot encoded, and numerical features are scaled using MinMaxScaler.
+To improve the model's performance, several preprocessing steps were applied to the dataset. The date/time information was extracted and transformed into separate columns for month, hour, and weekday. This allows the model to capture any potential patterns or trends related to these temporal factors. Categorical variables were one-hot encoded, and numerical variables were scaled using a MinMaxScaler.
 
-5. **Model Training and Hyperparameter Tuning:**
-   The code creates a random forest regressor model and fits it to the transformed training data. It then performs hyperparameter tuning using GridSearchCV to find the best combination of hyperparameters (number of estimators and maximum depth) based on cross-validation.
+### Model Training
 
-6. **Model Evaluation:**
-   The code evaluates the best estimator on the test data using the R-squared score, which measures the goodness of fit of the model. The R-squared score indicates the proportion of the variance in the target variable that is predictable from the input features.
+A Random Forest Regressor was chosen as the predictive model due to its ability to handle both numerical and categorical features effectively. A transformation pipeline was created to preprocess the data and feed it into the model. The model was then trained on the transformed training dataset.
 
-7. **Prediction and Submission:**
-   The code transforms the features in the test dataset using the transformation pipeline and makes predictions using the best estimator. The predictions are saved in a DataFrame, along with the corresponding timestamps, and then saved as a CSV file for submission.
+### Hyperparameter Optimization
+
+To improve the model's performance further, a grid search was performed to find the best combination of hyperparameters for the Random Forest Regressor. The grid search was conducted using cross-validation and evaluated based on the coefficient of determination (R2 score). The best estimator from the grid search was selected and used for prediction.
+
+### Prediction and Submission
+
+The trained model was applied to the test dataset to make predictions on bike sharing demand. The R2 score was calculated to evaluate the model's performance on the test dataset. Finally, the model was used to predict bike sharing demand for a separate dataset (Kaggle competition) and the results were saved in a submission file for evaluation.
+
+This project demonstrates the application of machine learning techniques for predicting bike sharing demand. The code provided can be used as a reference for similar prediction tasks or as a starting point for further exploration and improvement.
+
+Feel free to explore the code and dataset provided to gain insights into the bike sharing demand prediction task. If you have any questions or suggestions, please feel free to reach out.
+
+Happy coding!
